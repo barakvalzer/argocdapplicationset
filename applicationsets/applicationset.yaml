@@ -25,6 +25,9 @@ spec:
         helm:
           valueFiles:
             - '{{valuesFile}}'
+          parameters:
+            - name: image.pullPolicy
+              value: IfNotPresent
       destination:
         server: https://kubernetes.default.svc
         namespace: flask-{{env}}
@@ -32,4 +35,3 @@ spec:
         automated:
           prune: true
           selfHeal: true
-                
