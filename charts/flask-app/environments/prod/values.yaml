@@ -4,3 +4,7 @@ env:
 ingress:
   enabled: true
   host: prod.local
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/rewrite-target: /
+  tls: []
