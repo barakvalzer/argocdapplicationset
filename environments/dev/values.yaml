@@ -1,0 +1,6 @@
+env:
+  - name: ENV
+    value: dev
+ingress:
+  enabled: true
+  host: dev.local

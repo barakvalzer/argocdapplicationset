@@ -1,0 +1,6 @@
+env:
+  - name: ENV
+    value: prod
+ingress:
+  enabled: true
+  host: prod.local

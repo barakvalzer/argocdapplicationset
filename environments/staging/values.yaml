@@ -1,0 +1,6 @@
+env:
+  - name: ENV
+    value: staging
+ingress:
+  enabled: true
+  host: staging.local

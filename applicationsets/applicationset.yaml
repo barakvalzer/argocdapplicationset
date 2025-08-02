@@ -1,0 +1,34 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: flask-app-multi-env
+  namespace: argocd
+spec:
+  generators:
+    - list:
+        elements:
+          - env: dev
+            valuesFile: environments/dev/values.yaml
+          - env: staging
+            valuesFile: environments/staging/values.yaml
+          - env: prod
+            valuesFile: environments/prod/values.yaml
+  template:
+    metadata:
+      name: '{{env}}-flask-app'
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/your-org/elementor-devops-apps.git
+        targetRevision: main
+        path: charts/flask-app
+        helm:
+          valueFiles:
+            - '{{valuesFile}}'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: flask-{{env}}
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
