@@ -19,7 +19,7 @@ spec:
     spec:
       project: default
       source:
-        repoURL: https://github.com/your-org/argocdapplicationset.git
+        repoURL: https://github.com/barakvalzer/argocdapplicationset.git
         targetRevision: main
         path: charts/flask-app
         helm:
