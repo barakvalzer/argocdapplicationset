@@ -8,11 +8,11 @@ spec:
     - list:
         elements:
           - env: dev
-            valuesFile: ../../environments/dev/values.yaml
+            valuesFile: environments/dev/values.yaml
           - env: staging
-            valuesFile: ../../environments/staging/values.yaml
+            valuesFile: environments/staging/values.yaml
           - env: prod
-            valuesFile: ../../environments/prod/values.yaml
+            valuesFile: environments/prod/values.yaml
   template:
     metadata:
       name: '{{env}}-flask-app'
